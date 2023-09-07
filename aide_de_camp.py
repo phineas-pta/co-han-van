@@ -1,9 +1,21 @@
 # -*- coding: utf-8 -*-
 
-"""stupid helper script"""
+"""
+stupid helper script
+how to use:
+
+from aide_de_camp import combo, page_HanVietDich, touch_chapters, chapHeader
+touch_chapters("src/han-van-nhap-mon/thien-tu-van", end=13)
+
+while True: print("\n", combo(input("text Hant: "), input("text Viet: "), printed=False), "\n")
+while True: print("\n", para_HanVietDich(input("text Hant: "), input("text Viet: "), input("text Dich: "), printed=False), "\n")
+
+import pyperclip
+pyperclip.copy(chapHeader("", "", ""))
+pyperclip.copy(page_HanVietDich("""""", printed=False))
+"""
 
 import re, html, json, requests
-import pyperclip
 from unicodedata import normalize as uni_norm
 
 def escapeHTML(txt: str) -> str:
@@ -69,8 +81,6 @@ def combo(textHan: str, textViet: str, esc: bool=True, printed: bool=True, debug
 	if printed: print(res)
 	else: return res
 
-# while True: print("\n", combo(input("text Hant: "), input("text Viet: "), printed=False), "\n")
-
 def verse_HanViet(textHan: str, textViet: str, esc: bool=True, printed: bool=True, debug: bool=False) -> str:
 	"""combine text (multiple lines) into ruby annotation in HTML"""
 	text1, text2 = textHan.split("\n"), textViet.split("\n")
@@ -92,8 +102,6 @@ def para_HanVietDich(textHan: str, textViet: str, dichViet: str="", dichAnh: str
 	if printed: print(res)
 	else: return res
 
-# while True: print("\n", para_HanVietDich(input("text Hant: "), input("text Viet: "), input("text Dich: "), printed=False), "\n")
-
 def page_HanVietDich(completePage: str, esc: bool=True, printed: bool=True, debug: bool=False) -> str:
 	completePage_bis = completePage.split("\n\n")
 	res = ""
@@ -105,8 +113,6 @@ def page_HanVietDich(completePage: str, esc: bool=True, printed: bool=True, debu
 	if printed: print(res)
 	else: return res
 
-pyperclip.copy(page_HanVietDich("""""", printed=False))
-
 tmp3 = '---\nlayout: lay-chap.njk\neleventyNavigation:\n  parent: "{book}"\n  key: "{placeholder}"\n  order: {num}\n---\n'
 def touch_chapters(path: str, start: int=1, end: int=2) -> None:
 	"""create edit-ready chapter files for each book"""
@@ -117,8 +123,6 @@ def touch_chapters(path: str, start: int=1, end: int=2) -> None:
 		with open(f"{path}/{filename}.html", mode="w", encoding="utf-8") as f:
 			f.write(tmp3.format(book=book, placeholder=filename, num=i))
 
-# touch_chapters("ton-tu-binh-phap", end=13)
-
 tmp4 = '<header class="subtitle">\n\t<h4>\n\t\t<span lang="zh-Hant">\n\t\t\t{ruby}</span><br />\n\t\t<span lang="en">{trans}</span>\n\t</h4>\n</header>'
 def chapHeader(titleHan: str, titleViet: str, titleAnh: str) -> str:
 	"""create chapter title header"""
@@ -126,8 +130,6 @@ def chapHeader(titleHan: str, titleViet: str, titleAnh: str) -> str:
 	tmp5 = tmp5[:-1] # last "\t"
 	print(f"title: {titleHan} {titleViet} ({titleAnh})") # for front matter
 	return tmp4.format(ruby=tmp5, trans=titleAnh)
-
-# pyperclip.copy(chapHeader("", "", ""))
 
 # %% batch escape/unescape HTML & unicode entities
 

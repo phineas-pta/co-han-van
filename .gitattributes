@@ -1,5 +1,5 @@
 # exclude multiple HTML files from GitHub stats
-src/* linguist-vendored=true
+src/** linguist-vendored
 
 # in YAML pipeline remember to enable LFS
 # *.ttf filter=lfs diff=lfs merge=lfs -text
