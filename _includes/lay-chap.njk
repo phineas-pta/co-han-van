@@ -1,0 +1,39 @@
+{# LAYOUT for chapters: cho các chương sách #}
+
+<!DOCTYPE html>
+<html lang="vi" class="has-navbar-fixed-top">
+{% include "header.njk" %}
+<body class="container is-max-widescreen">
+
+	{# all pages must have eleventyNavigation.key except root homepage #}
+
+	{% include "navbar.njk" %}
+	{% include "breadcrumbs.njk" %}
+
+	{# main content #}
+	<main id="main"><article class="content is-large">
+		{{ content | safe }}{# coz content is html already #}
+	</article></main>
+
+	<hr />
+	{# pagination: next / prev buttons #}
+	{% set navPages = collections.all | eleventyNavigation(eleventyNavigation.parent) %}
+	{% set prev_next = eleventyNavigation.key | findNextPrev(navPages) %}
+	<nav class="pagination is-large" role="navigation" aria-label="pagination">
+		{% if prev_next.prev_url -%}
+			<a id="prev-button" class="pagination-previous button is-primary" href="{{ prev_next.prev_url | url }}">Previous</a>
+		{%- else -%}
+			<a class="pagination-previous is-disabled">🚫</a>
+		{%- endif %}
+		{% if prev_next.next_url -%}
+			<a id="next-button" class="pagination-next button is-primary" href="{{ prev_next.next_url | url }}">Next</a>
+		{%- else -%}
+			<a class="pagination-next is-disabled">🚫</a>
+		{%- endif %}
+	</nav>
+
+	<hr />
+	{% include "footer.njk" %}
+
+</body>
+</html>

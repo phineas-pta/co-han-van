@@ -1,0 +1,24 @@
+{
+	"name": "co-han-van",
+	"version": "0.0.1",
+	"author": "PTA",
+	"description": "tuyển tập nhiều tác phẩm hán văn cổ điển",
+	"keywords": [],
+	"repository": "github:phineas-pta/co-han-van",
+	"homepage": "https://phineas-pta.github.io/co-han-van/",
+	"license": "The Unlicense",
+	"main": ".eleventy.js",
+	"scripts": {
+		"build-sass": "npx sass --no-source-map assets",
+		"watch-sass": "npx sass --no-source-map --watch assets",
+		"build-eleventy": "npx @11ty/eleventy",
+		"watch-eleventy": "npx @11ty/eleventy --serve",
+		"test": "echo HAHA GOOD"
+	},
+	"dependencies": {
+		"@11ty/eleventy": "latest",
+		"@11ty/eleventy-navigation": "latest",
+		"bulma": "latest",
+		"sass": "latest"
+	}
+}

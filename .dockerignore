@@ -1,0 +1,12 @@
+_site/
+.editorconfig
+.git/
+.gitattributes
+.github/
+.gitignore
+.gitlab-ci.yml
+aide_de_camp.py
+assets/*.css
+assets/fonts/*.txt
+node_modules/
+package-lock.json

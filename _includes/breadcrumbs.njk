@@ -1,0 +1,15 @@
+{# all pages must have eleventyNavigation.key except root homepage #}
+
+<nav class="breadcrumb is-large is-centered has-succeeds-separator" role="navigation" aria-label="breadcrumbs">
+	{% set navPages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %}
+	<ul>
+		<li><a rel="prev" href="{{ '/' | url }}" class="MUC-LUC ">Home</a></li>
+		{% for entry in navPages %}
+			{% if not loop.last %}
+				<li><a rel="prev" href="{{ entry.url | url }}" class="MUC-LUC">{{ entry.key }}</a></li>
+			{% else %}
+				<li class="is-active"><a href="#" aria-current="page">{{ entry.key }}</a></li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</nav>

@@ -1,0 +1,14 @@
+.editorconfig
+.git/
+.gitattributes
+.github/
+.gitignore
+.gitlab-ci.yml
+_site/
+aide_de_camp.py
+assets/fonts/*.txt
+LICENSE
+node_modules/
+package.json
+package-lock.json
+README.md

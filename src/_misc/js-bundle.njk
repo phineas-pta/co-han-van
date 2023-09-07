@@ -1,0 +1,12 @@
+---
+permalink: assets/script.js
+layout: null
+eleventyExcludeFromCollections: true
+---
+{% include "script.js" %}
+
+// PWA things
+if ("serviceWorker" in navigator) navigator.serviceWorker
+	.register("{{ '/service-worker.js' | url }}")
+	.then(() => console.log("register service worker for pwa"))
+	.catch(() => console.error("pwa failed"));

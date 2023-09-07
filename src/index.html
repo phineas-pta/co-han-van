@@ -1,0 +1,52 @@
+---
+layout: null
+page_title: Home
+---
+
+<!DOCTYPE html>
+<html lang="vi" class="has-navbar-fixed-top">
+{% include "header.njk" %}
+<body class="container is-max-widescreen">
+
+	{% include "navbar.njk" %}
+
+	<main id="main"><article class="content is-large">
+		<header class="title">
+			<h1>
+				<span lang="zh-Hant">
+					<ruby><rb>&#21476;</rb><!-- 古 --><rt>Cổ</rt></ruby>
+					<ruby><rb>&#28450;</rb><!-- 漢 --><rt>Hán</rt></ruby>
+					<ruby><rb>&#25991;</rb><!-- 文 --><rt>văn</rt></ruby>
+				</span><br />
+				<span lang="en">Classical Chinese texts</span>
+			</h1>
+		</header>
+		<p>collection of some classical chinese texts - tuyển tập 1 số tác phẩm hán văn cổ điển</p>
+		<p>漢–越–英 / Hán - Việt - Anh / Chinese - Vietnamese - English</p>
+		<p>chủ yếu các tác phẩm thuộc 諸子百家 chư tử bách gia (Hundred Schools of Thought) đặc biệt là 九流十家 cửu lưu thập gia (Nine Schools of Thought)</p>
+		<ul lang="en">
+			<li>original chinese source texts and sino-vietnamese pronunciations are in public domain</li>
+			<li>any translations should be copyright-expired works found on internet</li>
+			<li>this website is a hobby project and work of compilation, academic accuracy not guaranteed</li>
+			<li>want to grab text but difficult to copy? parse the source code, it’s well formatted</li>
+		</ul>
+		<p>danh sách chung</p>
+
+		{% set navPages = collections.all | eleventyNavigation %}{# don’t use eleventyNavigationToHtml coz dont work with prefix yet with 11ty v2 #}
+		<ul>
+			{% for entry in navPages %}
+				<li><a rel="next" href="{{ entry.url | url }}" class="MUC-LUC">{{ entry.title }}</a></li>
+				{# title must be a child of eleventyNavigation coz loop cannot access outside value ? #}
+			{% endfor %}
+		</ul>
+
+		<p>ý tưởng: Lỗ Bình Sơn, 2013, “cổ hán văn” (web đã biến mất) {{ "https://web.archive.org/web/sitemap/cohanvan.com" | makeMyLink | safe }}</p>
+		<p>nguồn text: Donald Sturgeon, 2019, “Chinese Text Project” 中國哲學書電子化計劃 {{ "https://ctext.org/" | makeMyLink | safe }}</p>
+		<p>chuyển đổi hán-việt: Thi Viện, 2001 {{ "https://hvdic.thivien.net/transcript.php" | makeMyLink | safe }}</p>
+	</article></main>
+
+	<hr />
+	{% include "footer.njk" %}
+
+</body>
+</html>

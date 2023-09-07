@@ -1,0 +1,15 @@
+---
+permalink: service-worker.js
+layout: null
+eleventyExcludeFromCollections: true
+---
+
+const cacheName = "mycache-v1 / co-han-van", // update ver to update cache
+      cacheContent = [
+      	"{{ '/assets/script.js' | url }}",
+      	"{{ '/assets/style.css' | url }}",
+      	"{{ '/assets/fonts/GrenzeGotisch-ExtraBold.woff2' | url }}",
+      	"{{ '/assets/fonts/UKaiHK-02.woff2' | url }}",
+      ];
+
+{% include "sw.js" %}

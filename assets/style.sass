@@ -1,0 +1,77 @@
+[data-theme='dark'] // do not set for <body> because it breaks position fixed of sidenav
+	word-spacing: .05em // more readable against dark backgrounds: a tiny amount of extra space
+	filter: invert(1) hue-rotate(180deg) // photoshop trick: inverted luminance
+
+main
+	filter: blur(5px) // at preload, to be remove once page loaded
+
+a.MY-REF
+	font-family: monospace
+	font-size: smaller
+	overflow-wrap: anywhere
+	word-break: break-all
+	word-wrap: break-word
+
+	&::before
+		content: '\1F517' // 🔗
+		font-size: 70%
+
+// https://github.com/Omnibus-Type/Grenze-Gotisch/blob/master/fonts/ttf/GrenzeGotisch-ExtraBold.ttf
+@font-face
+	font-family: 'SinoViet-font'
+	src: url('fonts/GrenzeGotisch-ExtraBold.woff2') format('woff2'), url('fonts/GrenzeGotisch-ExtraBold.ttf') format('truetype')
+
+// ttf extracted from https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc
+@font-face
+	font-family: 'ChineseFont'
+	src: url('fonts/UKaiHK-02.woff2') format('woff2'), url('fonts/UKaiHK-02.ttf') format('truetype')
+
+header
+	text-align: center
+
+.multi-lang > :lang(vi)
+	color: #3A8098
+
+/* **************************** ruby annotations **************************** */
+
+// see how it was improved https://codereview.stackexchange.com/q/260732/242219
+
+ruby
+	display: inline-flex
+	flex-direction: column-reverse
+	margin-right: 0.5em
+	overflow-wrap: anywhere
+	word-break: break-all
+	word-wrap: break-word
+
+rb
+	display: inline // with infline-flex above
+	color: #939597
+	font-family: 'ChineseFont'
+	font-size: 175% // because this font is so small
+
+rt
+	display: inline // with infline-flex above
+	line-height: 1.5 // with infline-flex above
+	text-align: left // to work together with rb margin
+	font-family: 'SinoViet-font'
+	font-size: larger // because font unexpectedly got smaller
+
+/* ********************************* bulma ********************************* */
+
+// always need
+@import "../node_modules/bulma/sass/base/_all.sass"
+@import "../node_modules/bulma/sass/helpers/_all.sass"
+@import "../node_modules/bulma/sass/utilities/_all.sass"
+@import "../node_modules/bulma/sass/form/shared.sass"
+
+// on-demand
+@import "../node_modules/bulma/sass/components/breadcrumb.sass"
+@import "../node_modules/bulma/sass/components/navbar.sass"
+@import "../node_modules/bulma/sass/components/pagination.sass"
+@import "../node_modules/bulma/sass/elements/button.sass"
+@import "../node_modules/bulma/sass/elements/container.sass"
+@import "../node_modules/bulma/sass/elements/content.sass"
+@import "../node_modules/bulma/sass/elements/title.sass"
+@import "../node_modules/bulma/sass/form/checkbox-radio.sass"
+@import "../node_modules/bulma/sass/layout/footer.sass"

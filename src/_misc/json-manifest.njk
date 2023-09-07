@@ -1,0 +1,24 @@
+---
+permalink: site.webmanifest
+layout: null
+eleventyExcludeFromCollections: true
+---
+
+{
+	"name": "{{ globals.title }}",
+	"short_name": "{{ globals.title }}",
+	"description": "{{ globals.desc }}",
+	"dir": "ltr",
+	"display": "standalone",
+	"lang": "vi",
+	"orientation": "any",
+	"start_url": "{{ '/index.html' | url }}",
+	"scope": "{{ '/' | url }}",
+	"prefer_related_applications": false,
+	"background_color": "{{ globals.pwa_color }}",
+	"theme_color": "{{ globals.pwa_color }}",
+	"categories": [],
+	"icons": [],
+	"screenshots": [],
+	"shortcuts": []
+}

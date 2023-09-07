@@ -1,0 +1,35 @@
+image: node:latest
+
+stages:
+  - deploy
+
+variables:
+  GIT_DEPTH: 1
+
+pages:
+  stage: deploy
+
+  only:
+  - main
+  except:
+    changes:
+      - .dockerignore
+      - .editorconfig
+      - .gitattributes
+      - .github/*
+      - .gitignore
+      - aide_de_camp.py
+      - assets/fonts/*.txt
+      - Dockerfile
+      - LICENSE
+      - README.md
+
+  script:
+  - npm install
+  - npx sass --no-source-map assets
+  - npx @11ty/eleventy --output='public' --pathprefix="$CI_PROJECT_NAME"
+  # GitLab Pages only publish files in this folder
+
+  artifacts:
+    paths:
+    - public

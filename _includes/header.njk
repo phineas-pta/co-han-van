@@ -1,0 +1,26 @@
+<head>
+	{% set current_title %}
+		{% if page_title %}
+			{{ page_title }}
+		{% elif layout == "lay-chap.njk" %}
+			{# use book title instead of chapter title #}
+			{{ eleventyNavigation.parent }} - {{ eleventyNavigation.order }}
+		{% elif eleventyNavigation.key %}
+			{{ eleventyNavigation.key }}
+		{% else %}
+			{{ globals.title }}
+		{% endif %}
+	{% endset %}
+	<title>{{ current_title }} | {{ globals.title }}</title>
+	<meta charset="UTF-8" />
+	<meta name="author" content="{{ globals.author }}" />
+	<meta name="description" content="{{ globals.desc }}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" /><!-- typical mobile-optimized site -->
+	<meta http-equiv="Permissions-Policy" content="interest-cohort=()" /><!-- because of Chrome vs GitHub Pages -->
+	<meta name="generator" content="{{ eleventy.generator }}">
+	<meta name="theme-color" content="{{ globals.pwa_color }}" /><!-- for PWA -->
+	<link rel="manifest" href="{{ '/site.webmanifest' | url }}" /><!-- for PWA -->
+	<link rel="icon" href="{{ '/assets/imgs/Martz90-Circle-Books.ico' | url }}" />
+	<link rel="stylesheet" href="{{ '/assets/style.css' | url }}" /><!-- plugin htmlBaseUrl doesn’t work as expected -->
+	<script src="{{ '/assets/script.js' | url }}"></script>
+</head>
