@@ -6,7 +6,7 @@ const parser = new DOMParser(), // to deal with raw html
       y = "yesssss", dkey = "dark"; // keyword for dark theme
 
 // placeholder for various html element
-var hamburger, nextButton, prevButton;
+var hamburger;
 
 // when everything ready
 window.onload = () => {
@@ -30,11 +30,6 @@ window.onload = () => {
 	document.getElementById("home-button").onclick = noHistoryChange; // def below
 	for (let el of document.querySelectorAll("a.MUC-LUC"))
 		el.onclick = noHistoryChange;
-	prevButton = document.getElementById("prev-button");
-	nextButton = document.getElementById("next-button");
-	// those buttons only available in chapters
-	if (prevButton != null) prevButton.onclick = noHistoryChange;
-	if (nextButton != null) nextButton.onclick = noHistoryChange;
 
 	// remove blur once page loaded
 	document.getElementById("main").style.filter = "none";
