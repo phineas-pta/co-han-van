@@ -1,4 +1,4 @@
-[data-theme='dark'] // do not set for <body> because it breaks position fixed of sidenav
+[data-theme="dark"] // do not set for <body> because it breaks position fixed of sidenav
 	word-spacing: .05em // more readable against dark backgrounds: a tiny amount of extra space
 	filter: invert(1) hue-rotate(180deg) // photoshop trick: inverted luminance
 
@@ -13,19 +13,20 @@ a.MY-REF
 	word-wrap: break-word
 
 	&::before
-		content: '\1F517' // 🔗
+		content: "\1F517" // 🔗
 		font-size: 70%
 
 // https://github.com/Omnibus-Type/Grenze-Gotisch/blob/master/fonts/ttf/GrenzeGotisch-ExtraBold.ttf
 @font-face
-	font-family: 'SinoViet-font'
-	src: url('fonts/GrenzeGotisch-ExtraBold.woff2') format('woff2'), url('fonts/GrenzeGotisch-ExtraBold.ttf') format('truetype')
+	font-family: "SinoViet-font"
+	src: url("fonts/GrenzeGotisch-ExtraBold.woff2") format("woff2"), url("fonts/GrenzeGotisch-ExtraBold.ttf") format("truetype")
 
 // ttf extracted from https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc
 @font-face
-	font-family: 'ChineseFont'
-	src: url('fonts/UKaiHK-02.woff2') format('woff2'), url('fonts/UKaiHK-02.ttf') format('truetype')
+	font-family: "ChineseFont"
+	src: url("fonts/UKaiHK-02.woff2") format("woff2"), url("fonts/UKaiHK-02.ttf") format("truetype")
 
+// bulma class `is-centered` not work well
 header
 	text-align: center
 
@@ -47,14 +48,14 @@ ruby
 rb
 	display: inline // with infline-flex above
 	color: #939597
-	font-family: 'ChineseFont'
+	font-family: "ChineseFont"
 	font-size: 175% // because this font is so small
 
 rt
 	display: inline // with infline-flex above
 	line-height: 1.5 // with infline-flex above
 	text-align: left // to work together with rb margin
-	font-family: 'SinoViet-font'
+	font-family: "SinoViet-font"
 	font-size: larger // because font unexpectedly got smaller
 
 /* ********************************* bulma ********************************* */

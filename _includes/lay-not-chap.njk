@@ -12,10 +12,17 @@
 
 	{# main content #}
 	<main id="main"><article class="content is-large">
+
 		{{ content | safe }}{# coz content is html already #}
+
 		{% if ctext_id -%}{# in a book #}
 			<p>Source: {{ ("https://ctext.org/" + ctext_id) | makeMyLink | safe }}</p>
 		{%- endif %}
+
+		{% if chap_list_notes -%}{# phân chia các chương #}
+			<p>{{ chap_list_notes | safe }}</p>
+		{%- endif %}
+
 		<p>mục lục:</p>
 		{# don’t use eleventyNavigationToHtml coz dont work with prefix yet with 11ty v2 #}
 		{% set navPages = collections.all | eleventyNavigation(eleventyNavigation.key) %}
@@ -26,6 +33,7 @@
 				{# if `title` undefined then eleventyNavigation auto use `key` #}
 			{% endfor %}
 		{% if ctext_id %}</ol>{% else %}</ul>{% endif %}
+
 	</article></main>
 
 	<hr />

@@ -96,8 +96,7 @@ def verse_HanViet(textHan: str, textViet: str, esc: bool=True, printed: bool=Tru
 tmp0 = '<p class="multi-lang">\n\t<span lang="zh-Hant">\n\t\t{ruby}</span><br />\n\t<span lang="vi">{dichViet}</span><br />\n\t<span lang="en">{dichAnh}</span>\n</p>'
 # move {trans} around to fit the need
 def para_HanVietDich(textHan: str, textViet: str, dichViet: str="", dichAnh: str="", esc: bool=True, printed: bool=True, debug: bool=False) -> str:
-	tmp1 = combo(textHan, textViet, esc, False, debug).replace("\n", "\n\t\t")
-	tmp1 = tmp1[:-1] # last "\t"
+	tmp1 = combo(textHan, textViet, esc, False, debug).replace("\n", "\n\t\t")[:-1] # remove last "\t"
 	res = tmp0.format(ruby=tmp1, dichViet=dichViet, dichAnh=dichAnh)
 	if printed: print(res)
 	else: return res
@@ -123,13 +122,15 @@ def touch_chapters(path: str, start: int=1, end: int=2) -> None:
 		with open(f"{path}/{filename}.html", mode="w", encoding="utf-8") as f:
 			f.write(tmp3.format(book=book, placeholder=filename, num=i))
 
-tmp4 = '<header class="subtitle">\n\t<h4>\n\t\t<span lang="zh-Hant">\n\t\t\t{ruby}</span><br />\n\t\t<span lang="en">{trans}</span>\n\t</h4>\n</header>'
+tmp4_1 = '  title: "{han} {viet} ({trans})"\n---\n<header><h4 class="title">'
+tmp4_2 = '<span lang="zh-Hant">\n\t\t{ruby}</span><br />\n\t<span lang="en">{trans}</span>\n</h4></header>'
 def chapHeader(titleHan: str, titleViet: str, titleAnh: str) -> str:
 	"""create chapter title header"""
-	tmp5 = combo(titleHan, titleViet, printed=False).replace("\n", "\n\t\t\t")
-	tmp5 = tmp5[:-1] # last "\t"
-	print(f"title: {titleHan} {titleViet} ({titleAnh})") # for front matter
-	return tmp4.format(ruby=tmp5, trans=titleAnh)
+	tmp5 = combo(titleHan, titleViet, printed=False).replace("\n", "\n\t\t")[:-1] # remove last "\t"
+	res = tmp4_1.format(han=titleHan.replace(" ", ""), viet=titleViet, trans=titleAnh)
+	res += '{{ eleventyNavigation.order }}.\n\t'
+	res += tmp4_2.format(ruby=tmp5, trans=titleAnh)
+	return res
 
 # %% batch escape/unescape HTML & unicode entities
 
