@@ -1,4 +1,4 @@
-[data-theme="dark"] // do not set for <body> because it breaks position fixed of sidenav
+[data-theme="dark"]
 	word-spacing: .05em // more readable against dark backgrounds: a tiny amount of extra space
 	filter: invert(1) hue-rotate(180deg) // photoshop trick: inverted luminance
 
@@ -26,7 +26,7 @@ a.MY-REF
 	font-family: "ChineseFont"
 	src: url("fonts/UKaiHK-02.woff2") format("woff2"), url("fonts/UKaiHK-02.ttf") format("truetype")
 
-// bulma class `is-centered` not work well
+// instead of bulma class `has-text-centered` (dont use `is-centered`)
 header
 	text-align: center
 
@@ -40,7 +40,7 @@ header
 ruby
 	display: inline-flex
 	flex-direction: column-reverse
-	margin-right: 0.5em
+	margin-right: 0.2em
 	overflow-wrap: anywhere
 	word-break: break-all
 	word-wrap: break-word
@@ -53,7 +53,7 @@ rb
 
 rt
 	display: inline // with infline-flex above
-	line-height: 1.5 // with infline-flex above
+	line-height: 0.7 // with infline-flex above
 	text-align: left // to work together with rb margin
 	font-family: "SinoViet-font"
 	font-size: larger // because font unexpectedly got smaller

@@ -40,8 +40,6 @@ LABEL name="Cổ Hán Văn"
 LABEL description="collection of some classical chinese texts"
 LABEL author="PTA"
 
-WORKDIR /home
-
 COPY --from=serverbuilder /home/asmttpd/asmttpd /
 COPY --from=pagebuilder /home/_site /web_root
 # default dir name of asmttpd
