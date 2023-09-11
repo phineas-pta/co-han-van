@@ -12,10 +12,7 @@ a.MY-REF
 	word-break: break-all
 	word-wrap: break-word
 
-	&::before
-		content: "\1F517" // 🔗
-		font-size: 70%
-
+// https://github.com/Omnibus-Type/Grenze-Gotisch/blob/master/fonts/webfonts/GrenzeGotisch-ExtraBold.woff2
 // https://github.com/Omnibus-Type/Grenze-Gotisch/blob/master/fonts/ttf/GrenzeGotisch-ExtraBold.ttf
 @font-face
 	font-family: "SinoViet-font"
@@ -26,12 +23,20 @@ a.MY-REF
 	font-family: "ChineseFont"
 	src: url("fonts/UKaiHK-02.woff2") format("woff2"), url("fonts/UKaiHK-02.ttf") format("truetype")
 
+// https://github.com/FortAwesome/Font-Awesome/tree/6.4.2/webfonts
+@font-face
+	font-family: "FoAw-icon"
+	src: url("fonts/fa-solid-900.woff2") format("woff2"), url("fonts/fa-solid-900.ttf") format("truetype")
+
 // instead of bulma class `has-text-centered` (dont use `is-centered`)
 header
 	text-align: center
 
 .multi-lang > :lang(vi)
 	color: #3A8098
+
+.FA-ICON
+	font-family: "FoAw-icon"
 
 /* **************************** ruby annotations **************************** */
 

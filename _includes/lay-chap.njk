@@ -21,14 +21,14 @@
 	{% set prev_next = eleventyNavigation.key | findNextPrev(navPages) %}
 	<nav class="pagination is-large" role="navigation" aria-label="pagination">
 		{% if prev_next.prev_url -%}
-			<a class="MUC-LUC pagination-previous button is-link" href="{{ prev_next.prev_url | url }}">&#9198;</a><!-- ⏮ without modifier -->
+			<a class="MUC-LUC FA-ICON pagination-previous button is-link" href="{{ prev_next.prev_url | url }}">&#9198;</a><!-- ⏮ without modifier -->
 		{%- else -%}
-			<a class="pagination-previous is-disabled">&#128683;</a><!-- 🚫 -->
+			<a class="FA-ICON pagination-previous is-disabled">&#128683;</a><!-- 🚫 -->
 		{%- endif %}
 		{% if prev_next.next_url -%}
-			<a class="MUC-LUC pagination-next button is-link" href="{{ prev_next.next_url | url }}">&#9197;</a><!-- ⏭ without modifier -->
+			<a class="MUC-LUC FA-ICON pagination-next button is-link" href="{{ prev_next.next_url | url }}">&#9197;</a><!-- ⏭ without modifier -->
 		{%- else -%}
-			<a class="pagination-next is-disabled">&#128683;</a><!-- 🚫 -->
+			<a class="FA-ICON pagination-next is-disabled">&#128683;</a><!-- 🚫 -->
 		{%- endif %}
 	</nav>
 

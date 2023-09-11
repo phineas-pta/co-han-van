@@ -36,6 +36,7 @@ src/
 │  ├─ book-1/
 │  │  ├─ chapter-1.html
 │  │  ├─ chapter-2.html
+│ ...
 │  ├─ book-2/
 │  │  ├─ chapter-1.html
 │  │  ├─ chapter-2.html
@@ -55,12 +56,10 @@ using 11ty:
 docker ?? no option to change host
 
 additional setup:
-
- - Favicon: https://www.iconarchive.com/download/i75808/martz90/circle/books.ico
- - AR PL (Arphic Public Licensed) UKaiHK font: https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc, under the [Arphic public license](assets/fonts/ARPHICPL.txt)
- - Grenze Gotisch font: https://github.com/Omnibus-Type/Grenze-Gotisch/blob/master/fonts/ttf/GrenzeGotisch-ExtraBold.ttf, under the [SIL OFL v1.1](assets/fonts/OFL.txt)
-
-convert `.ttf` → `.woff2` using https://github.com/google/woff2
+- Favicon: https://www.iconarchive.com/download/i75808/martz90/circle/books.ico
+- AR PL (Arphic Public Licensed) UKaiHK font: https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc, under the [Arphic public license](assets/fonts/ARPHICPL.txt)
+- Grenze Gotisch font: https://github.com/Omnibus-Type/Grenze-Gotisch, under the [SIL OFL v1.1](assets/fonts/OFL.txt)
+- Font Awesome v6 solid: https://github.com/FortAwesome/Font-Awesome/tree/6.4.2/webfonts, under the [SIL OFL v1.1](assets/fonts/OFL.txt)
 
 UKaiHK font: originally `.ttc` → use FontForge to extract `.ttf` № 2 (HK)
 
