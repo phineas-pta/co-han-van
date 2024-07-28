@@ -30,8 +30,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3 # dont use cache coz ignore package-lock.json
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4 # dont use cache coz ignore package-lock.json
         with:
           node-version: "latest"
       - name: Install dependencies & build
@@ -40,14 +40,14 @@ jobs:
           npm install
           npx sass --no-source-map assets
           npx @11ty/eleventy --pathprefix "${{ github.event.repository.name }}"
-      - uses: actions/upload-pages-artifact@v2
+      - uses: actions/upload-pages-artifact@v3
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

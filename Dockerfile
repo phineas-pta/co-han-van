@@ -10,7 +10,7 @@ WORKDIR /home
 # assembler to binary
 RUN apt update &&\
     apt install -y git make yasm as31 nasm binutils &&\
-    git clone --depth=1 https://github.com/nemasu/asmttpd.git &&\
+    git clone --single-branch --depth=1 https://github.com/nemasu/asmttpd.git &&\
     cd asmttpd &&\
     make release
 
