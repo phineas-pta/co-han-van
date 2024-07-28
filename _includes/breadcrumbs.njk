@@ -1,6 +1,6 @@
 {# all pages must have eleventyNavigation.key except root homepage #}
 
-<nav class="breadcrumb is-large is-centered has-succeeds-separator" role="navigation" aria-label="breadcrumbs">
+<nav class="breadcrumb is-large is-centered is-spaced has-arrow-separator" role="navigation" aria-label="breadcrumbs">
 	{% set navPages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %}
 	<ul>
 		<li><a rel="prev" href="{{ '/' | url }}" class="MUC-LUC">Home</a></li>

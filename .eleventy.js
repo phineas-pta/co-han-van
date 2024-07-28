@@ -2,7 +2,7 @@
 
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 /*
-const sitemap = require("@quasibit/eleventy-plugin-sitemap"); // doesn’t with pathPrefix, doing my own
+const sitemap = require("@quasibit/eleventy-plugin-sitemap"); // doesn’t work with pathPrefix, doing my own
 const EleventyRenderPlugin = require("@11ty/eleventy"); // doesn’t auto transform weblinks in markdown
 const EleventyHtmlBasePlugin = require("@11ty/eleventy"); // doesn’t work as expected: see 11ty/eleventy#3035
  */
@@ -45,17 +45,17 @@ module.exports = (eleventyConfig) => {
 
 /**
  * Returns correct timestamp format for sitemap, instead of "luxon" things
- * @param {!Date} value
+ * @param {!Date} datetime (already UTC timezone)
  * @returns {!string}
  */
 function sitemapDate(value) {
-	var year = value.getFullYear(),
+	var year  =    value.getFullYear(),
 	    month = `${value.getMonth() + 1}`.padStart(2, "0"),
-	    day = `${value.getDate()}`.padStart(2, "0"),
-	    hour = `${value.getHours()}`.padStart(2, "0"),
-	    minut = `${value.getMinutes()}`.padStart(2, "0"),
-	    sec = `${value.getSeconds()}`.padStart(2, "0");
-	return `${year}-${month}-${day}T${hour}:${minut}:${sec}+00:00`; // already UTC timezone
+	    day   = `${value.getDate()     }`.padStart(2, "0"),
+	    hour  = `${value.getHours()    }`.padStart(2, "0"),
+	    minut = `${value.getMinutes()  }`.padStart(2, "0"),
+	    sec   = `${value.getSeconds()  }`.padStart(2, "0");
+	return `${year}-${month}-${day}T${hour}:${minut}:${sec}+00:00`;
 }
 
 /**
@@ -75,7 +75,7 @@ function findNextPrevious(key, nodes) {
 		}
 
 	return {
-		"prev_url": prev_i < 0 ? null : nodes[prev_i]["url"],
+		"prev_url": prev_i < 0            ? null                 : nodes[prev_i]["url"],
 		"next_url": next_i < nodes.length ? nodes[next_i]["url"] : null
 	}
 }

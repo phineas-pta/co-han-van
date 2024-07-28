@@ -1,9 +1,25 @@
+/* ********************************* bulma ********************************* */
+
+// always need
+@use "../node_modules/bulma/sass/base"
+@use "../node_modules/bulma/sass/themes"
+
+// on-demand
+@use "../node_modules/bulma/sass/elements/button"
+@use "../node_modules/bulma/sass/elements/content"
+@use "../node_modules/bulma/sass/elements/title"
+@use "../node_modules/bulma/sass/components/breadcrumb"
+@use "../node_modules/bulma/sass/components/navbar"
+@use "../node_modules/bulma/sass/components/pagination"
+@use "../node_modules/bulma/sass/form/checkbox-radio"
+@use "../node_modules/bulma/sass/layout/container"
+@use "../node_modules/bulma/sass/layout/footer"
+
+/* ************************************************************************* */
+
 [data-theme="dark"]
 	word-spacing: .05em // more readable against dark backgrounds: a tiny amount of extra space
-	filter: invert(1) hue-rotate(180deg) // photoshop trick: inverted luminance
-
-main
-	filter: blur(5px) // at preload, to be remove once page loaded
+// bulma now has built-in dark mode, no need “inverted luminance” trick anymore
 
 a.MY-REF
 	font-family: monospace
@@ -62,22 +78,3 @@ rt
 	text-align: left // to work together with rb margin
 	font-family: "SinoViet-font"
 	font-size: larger // because font unexpectedly got smaller
-
-/* ********************************* bulma ********************************* */
-
-// always need
-@import "../node_modules/bulma/sass/base/_all.sass"
-@import "../node_modules/bulma/sass/helpers/_all.sass"
-@import "../node_modules/bulma/sass/utilities/_all.sass"
-@import "../node_modules/bulma/sass/form/shared.sass"
-
-// on-demand
-@import "../node_modules/bulma/sass/components/breadcrumb.sass"
-@import "../node_modules/bulma/sass/components/navbar.sass"
-@import "../node_modules/bulma/sass/components/pagination.sass"
-@import "../node_modules/bulma/sass/elements/button.sass"
-@import "../node_modules/bulma/sass/elements/container.sass"
-@import "../node_modules/bulma/sass/elements/content.sass"
-@import "../node_modules/bulma/sass/elements/title.sass"
-@import "../node_modules/bulma/sass/form/checkbox-radio.sass"
-@import "../node_modules/bulma/sass/layout/footer.sass"

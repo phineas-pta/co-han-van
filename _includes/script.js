@@ -32,7 +32,7 @@ window.onload = () => {
 		el.onclick = noHistoryChange;
 
 	// remove blur once page loaded
-	document.getElementById("main").style.filter = "none";
+	document.getElementById("main").classList.remove("skeleton-block");
 };
 
 // event: click back/forward button in browser => change url without reloading
@@ -46,11 +46,11 @@ window.onpopstate = (e) => {
 // dark mode toggle
 function darkToggle() {
 	if (this.checked) {
-		document.documentElement.setAttribute("data-theme", dkey); // do not set for <body> because it breaks position fixed of sidenav
+		document.documentElement.setAttribute("data-theme", "dark");
 		this.nextSibling.textContent = "\uD83C\uDF19"; // \u{1F319} 🌙 surrogate pair
 		return window.localStorage.setItem(dkey, y); // save state
 	} else {
-		document.documentElement.removeAttribute("data-theme");
+		document.documentElement.setAttribute("data-theme", "light");
 		this.nextSibling.textContent = "\u2600\uFE0F"; // ☀️ with modifier
 		return window.localStorage.setItem(dkey, "tdyutrghjtucvghjtc"); // something random not important
 	}
