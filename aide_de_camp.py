@@ -4,11 +4,11 @@
 stupid helper script
 how to use:
 
-from aide_de_camp import combo, page_HanVietDich, touch_chapters, chapHeader
+from aide_de_camp import combo, para_HanVietDich, page_HanVietDich, touch_chapters, chapHeader
 touch_chapters("src/han-van-nhap-mon/thien-tu-van", end=13)
 
 while True: print("\n", combo(input("text Hant: "), input("text Viet: "), printed=False), "\n")
-while True: print("\n", para_HanVietDich(input("text Hant: "), input("text Viet: "), input("text Dich: "), printed=False), "\n")
+while True: print("\n", para_HanVietDich(input("text Hant: "), input("text Viet: "), input("text Dich: "), input("text Engl: "), printed=False), "\n")
 
 import pyperclip
 pyperclip.copy(chapHeader("", "", ""))
