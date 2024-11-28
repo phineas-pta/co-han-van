@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
-"""
+r"""
 stupid helper script
 how to use:
 
+```python
 from aide_de_camp import combo, para_HanVietDich, page_HanVietDich, touch_chapters, chapHeader
 touch_chapters("src/han-van-nhap-mon/thien-tu-van", end=13)
 
@@ -13,6 +14,9 @@ while True: print("\n", para_HanVietDich(input("text Hant: "), input("text Viet:
 import pyperclip
 pyperclip.copy(chapHeader("", "", ""))
 pyperclip.copy(page_HanVietDich("""""", printed=False))
+```
+
+(do not use VScode built-in terminal, it may strip out some characters)
 """
 
 import re, html, json, requests
@@ -23,14 +27,14 @@ def escapeHTML(txt: str) -> str:
 	return txt.encode("ascii", "xmlcharrefreplace").decode()
 
 html.unescape("&#21335;") # to unescape
-escapeHTML(uni_norm("NFC","đức")) # composed form
-escapeHTML(uni_norm("NFD","đức")) # decomposed form
+escapeHTML(uni_norm("NFC", "đức")) # composed form
+escapeHTML(uni_norm("NFD", "đức")) # decomposed form
 
 # %% make ruby
 
 thivien_url = "https://hvdic.thivien.net/transcript-query.json.php"
 thivien_headers = {
-	"User-Agent": "co_han_van/0.0.1 (https://github.com/phineas-pta/co_han_van) Python/3.x",
+	"User-Agent": "co_han_van/0.0.1 (https://github.com/phineas-pta/co_han_van) Python/3.1x",
 	"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
 }
 
