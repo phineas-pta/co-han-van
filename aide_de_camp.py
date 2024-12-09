@@ -13,7 +13,9 @@ while True: print("\n", para_HanVietDich(input("text Hant: "), input("text Viet:
 
 import pyperclip
 pyperclip.copy(chapHeader("", "", ""))
-pyperclip.copy(page_HanVietDich("""""", printed=False))
+pyperclip.copy(page_HanVietDich(" ", printed=False, debug=True))
+
+with open(r"███\yolo.txt", "r", encoding="utf-8") as f: pyperclip.copy(page_HanVietDich(f.read().rstrip('\n'), printed=False, debug=True))
 ```
 
 (do not use VScode built-in terminal, it may strip out some characters)
