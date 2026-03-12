@@ -1,14 +1,8 @@
 // 11ty config file
 
-const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-/*
-const sitemap = require("@quasibit/eleventy-plugin-sitemap"); // doesn’t work with pathPrefix, doing my own
-const EleventyRenderPlugin = require("@11ty/eleventy"); // doesn’t auto transform weblinks in markdown
-const EleventyHtmlBasePlugin = require("@11ty/eleventy"); // doesn’t work as expected: see 11ty/eleventy#3035
- */
+import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 
-module.exports = (eleventyConfig) => {
-
+export default function (eleventyConfig) {
 	eleventyConfig.setQuietMode(true); // console output
 	eleventyConfig.setUseGitIgnore(false); // use `.eleventyignore` instead
 	eleventyConfig.setBrowserSyncConfig({"snippet": false}); // manually reload page if making change
@@ -18,7 +12,7 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addPassthroughCopy("assets/fonts/*.ttf");
 	eleventyConfig.addPassthroughCopy("assets/fonts/*.woff2");
 	eleventyConfig.addPassthroughCopy("assets/imgs/Martz90-Circle-Books.ico");
-	eleventyConfig.addPassthroughCopy("assets/style.css");
+	eleventyConfig.addPassthroughCopy("assets/style.css"); // compiled using sass
 	// js scripts go nunjucks in _includes & src/_misc
 
 	eleventyConfig.addNunjucksFilter("makeMyLink", (value) => `<a class="MY-REF" href="${value}" target="_blank" rel="noreferrer">${value}</a>`);
@@ -26,25 +20,25 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addNunjucksFilter("findNextPrev", findNextPrevious) // def below
 
 	eleventyConfig.addPlugin(eleventyNavigationPlugin);
+};
 
-	return {
-		"pathPrefix": "co-han-van", // can be overidden with command line
+export const config = {
+	"pathPrefix": "co-han-van", // can be overidden with command line
 
-		// mozilla nunjucks template language
-		"markdownTemplateEngine": "njk",
-		"dataTemplateEngine": "njk",
-		"htmlTemplateEngine": "njk",
+	// mozilla nunjucks template language
+	"markdownTemplateEngine": "njk",
+	"dataTemplateEngine": "njk",
+	"htmlTemplateEngine": "njk",
 
-		"dir": {
-			"input": "src", // default is project dir
-			"includes": "../_includes", // relative to input dir
-			"data": "../_data", // relative to input dir
-		}
-	};
+	"dir": {
+		"input": "src", // default is project dir
+		"includes": "../_includes", // relative to input dir
+		"data": "../_data", // relative to input dir
+	}
 };
 
 /**
- * Returns correct timestamp format for sitemap, instead of "luxon" things
+ * Returns correct timestamp format for sitemap, instead of using "luxon"
  * @param {!Date} datetime (already UTC timezone)
  * @returns {!string}
  */

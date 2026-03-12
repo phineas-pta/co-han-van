@@ -20,7 +20,7 @@ window.onload = () => {
 
 	// dark mode toggle
 	var themeSwitch = document.getElementById("themeSwitch");
-	themeSwitch.onchange = darkToggle;
+	themeSwitch.onchange = darkToggle; // def below
 	var dstate = window.localStorage.getItem(dkey);
 	if (dstate === y || (dstate == null && window.matchMedia(`(prefers-color-scheme: ${dkey})`).matches))
 		themeSwitch.checked = true; // pre-check the dark-theme checkbox

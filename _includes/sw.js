@@ -1,4 +1,4 @@
-// cache name define in nunjucks
+// cache name define in src/_misc/js-sw.njk
 
 // initialize the cache and add files to it for offiline use
 self.addEventListener("install", (e) => {

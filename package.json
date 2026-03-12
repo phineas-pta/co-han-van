@@ -4,6 +4,7 @@
 	"author": "PTA",
 	"description": "tuyển tập nhiều tác phẩm hán văn cổ điển",
 	"keywords": [],
+	"type": "module",
 	"repository": "github:phineas-pta/co-han-van",
 	"homepage": "https://phineas-pta.github.io/co-han-van/",
 	"license": "The Unlicense",
