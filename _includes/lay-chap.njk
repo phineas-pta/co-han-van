@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="vi" class="has-navbar-fixed-top">
 {% include "header.njk" %}
-<body class="container is-max-widescreen px-1">
+<body class="container is-max-widescreen">
 
 	{# all pages must have eleventyNavigation.key except root homepage #}
 
@@ -11,7 +11,7 @@
 	{% include "breadcrumbs.njk" %}
 
 	{# main content #}
-	<main class="skeleton-block" id="main"><article class="content is-large">
+	<main class="skeleton-block" id="main"><article class="content is-large px-1">
 		{{ content | safe }}{# coz content is html already #}
 	</article></main>
 
